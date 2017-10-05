@@ -1,0 +1,47 @@
+.header {
+
+	width: 100%;
+
+	max-height: 100px;
+
+	height: 10%;
+
+	font-family: Verdana;
+
+	color: #333333;
+
+	position: relative;
+}
+
+.logo {
+
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: 100%;
+
+}
+
+.logo img{
+	height: 100%;
+}
+
+
+.header_text {
+	display: inline-block;
+	position: absolute;
+	bottom: 0px;
+	padding-left: 20;
+}
+
+#subtitle {
+	color: #888888;
+	font-size: 2vh;
+}
+
+#title {
+	color: #000000;
+	font-size: 4vh;
+}
+
