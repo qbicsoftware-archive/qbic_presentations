@@ -2,11 +2,12 @@
 
 	width: 100%;
 	max-height: 100px;
-	height: 6%;
+	height: 10%;
 	font-family: Verdana;
 	color: #333333;
-	position: relative;
+	position: absolute;
 	font-family: "Source Sans Pro", Helvetica, sans-serif;
+
 }
 
 .logo {
@@ -37,7 +38,7 @@
 }
 
 #title {
-	color: #0d5dc4;
+	color: #000000;
 	font-size: 4vh;
 }
 
@@ -50,3 +51,29 @@
 }
 
 .reveal section img { background:none; border:none; box-shadow:none;}
+
+div .small-text{
+	font-size: 4vh;
+}
+
+div .citation-text{
+	margin-top: 2%;
+	font-size: 2.5vh;
+}
+
+.reveal code  {
+	background-color: #DDDDDD;
+	color: #ff3f3f;
+	font-size: 80%; 
+}
+
+.reveal pre {
+	padding: 20 ;
+	color: #333333;
+	font-size: 40%;
+	line-height: 1.3em;
+	overflow: auto;
+	 word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: pre !important;
+}

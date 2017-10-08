@@ -3,7 +3,6 @@
 		<link rel="stylesheet" href="../../reveal.js/css/reveal.css">
 		<link rel="stylesheet" href="../../reveal.js/css/theme/white.css">
 		<link rel="stylesheet" href="myStyle.css">
-        <link rel="stylesheet" href="../css/fontawesome.min.css">
 	</head>
 	<body>
 		<div class="header">
@@ -13,22 +12,25 @@
 		</div>
 
 		<div class="header_text">
-
-		<div id="title">Continous Integration - Retreat 2017</div>
+            
+<!-- TITLE -->
+		<div id="title">Continuous Integration</div>
 		</div>
 
 		</div>
 		<div class="reveal">
 			<div class="slides">
+<!-- SLIDE 1 -->
 				<section>
-                    <h2> Continous Integration</h2>
-					<h4>Retreat 2017</h4>
+                    <h2> Continuous Integration</h2>
+					<h4>Retreat Talk 2017</h4>
 					Julian Sp&auml;th
 				</section>
+<!-- SLIDE 2 -->
                 <section>
-                    <h2> Continuous Integration</h2>
+                    <h2> Content</h2>
 				    <ul>
-						<li>Continuous Integration - Basics</li>
+						<li>Continuous Integration</li>
                             <ul>
                                 <li>What is CI?</li>
                                 <li>Benefits of CI</li>
@@ -40,20 +42,35 @@
                                 <li>Auto-Deployment</li>
                             </ul>
                         <li> Future thoughts</li>
+                        <li> Discussion </li>
 					</ul>
                 </section>
+<!-- SLIDE 3 -->
 				<section>
+<!-- SLIDE 3.1 -->
                     <section>
-                        <h2>Continuous Integration - Basics</h2>
+                        <h2>Continuous Integration</h2>
+                        <img src="figs/continous_integration2.png" width="45%"/>
                     </section>
+<!-- SLIDE 3.2 -->
                      <section>
                         <h3>What is CI?</h3>
                         <ul>
+                            <li> Using version control with a branching workflow</li>
+                        </ul>
+                         <div>
+                         <img src="figs/git_workflow.png" width="55%"/>
+                             </div>
+                    </section>
+                      <section>
+                        <h3>What is CI?</h3>
+                        <ul>
+                            <li> Using version control with a branching workflow </li>
                             <li> Automating build and testing of code  </li>
-                            <li> Frequently integration of the work</li>
                         </ul>
                          <img src="figs/build_completed.png" />
                     </section>
+<!-- SLIDE 3.3 -->
                     <section>
                        <div style="max-height: 20%;">
                             <h3>Benefits of CI </h3> <img style="float:right" height="20%" src="figs/thumb_up.jpg"/>
@@ -69,33 +86,83 @@
                                 <ul>
                                     <li>Development - Testing- Production</li>
                                 </ul>   
-                            <li>Enables continous delivery</li>
+                            <li>Enables continuous delivery</li>
                         </ul>
                     </div>
                     </section>
  				</section>
+<!-- SLIDE 4 -->
                 <section>
+<!-- SLIDE 4.1 -->
                     <section>
-                        <h2>Continuous Integration at QBiC</h2>
+                        <h2>Continuous Integration at</h2>
+                        <img src="figs/qbic_logo.png" width="15%"/>
                     </section>
+<!-- SLIDE 4.2 -->
                     <section>
-                         <h3>Tools</h3>
+                         <div style="max-height: 20%;">
+                            <h3>Tools</h3>
+                        </div>
+                        <div style="max-height: 80%;">
                          <div><img src="figs/git.png" width="25%"/> Version Control System </div>
                          <div><img src="figs/maven.png" width="28%"/> Build Management System</div>
                          <div><img src="figs/jenkins.png" width="35%"/>Automation Server</div>
+                        </div>
                     </section>
+<!-- SLIDE 4.3 -->
                     <section>
-                            <h3>Dependency Resolvement </h3>
+                        <div style="max-height: 20%;">
+                                 <h3>Automated Dependency Resolvement </h3>
+                        </div>
+                        <div style="max-height: 80%;">
+                       <div> <img src="figs/dependency_resolvement_automatedl.svg" width="40%" /></div>
+                        </div>
                     </section>
+                    
                     <section>
+                        <div style="max-height: 20%;">
+                                 <h3>Automated Dependency Resolvement </h3>
+                        </div>
+                        <div style="max-height: 80%;">
+                             
+                            <div class="small-text">https://www.sonatype.com/nexus-repository-sonatype</div>
+                        <div> <img src="figs/nexus_screenshot.png" width="30%" /></div>
+                        </div>
+                    </section>
+                    
+            
+<!-- SLIDE 4.4 -->
+                    <section>
+                        <div style="max-height: 20%;">
                             <h3>Auto-Deployment</h3>
+                        </div>
+                        <div style="max-height: 80%;">
+                            <img src="figs/deploy.png" width="70%"/>
+                        </div>
                     </section>
+                    <section>
+                        <div style="max-height: 20%;">
+                            <h3>Auto-Deployment</h3>
+                        </div>
+                        <div style="max-height: 80%;">
+                            <img src="figs/jenkins_build_multiple.svg" width="80%"/>
+                        </div>
+                    </section>
+                    
  				</section>
+<!-- SLIDE 5 -->
                 <section>
+<!-- SLIDE 5.1 -->
                     <section>
                         <h2>Future Thoughts</h2>
+                        <img src="figs/ideas2.jpg" width="45%"/>
                     </section>
  				</section>
+<!-- SLIDE 6 -->
+                <section>
+                    <h2>Discussion</h2>
+                    <img src="figs/discussion.jpg" width="45%"/>
+                </section>
 			</div>
 		</div>
 		<script src="../../reveal.js/js/reveal.js"></script>
