@@ -94,6 +94,18 @@
 						</div>
 						<div class="citation-text">Tommaso et al., Nature Biotechnology (2017), doi:10.1038/nbt.3820</div>
 					</section>
+					<section id="slide-docker-docker-security">
+						<h4>Docker drawbacks</h4>
+						<div>
+							<ul>
+								<li>Docker needs Linux kernel >= 3.10</li>
+								<li>Docker's daemon runs as <code>root</code> process</li>
+								<li><code>sudo</code> or <code>docker</code> UNIX group required to run a docker container
+								
+							</ul>
+							<strong>'root escalation'</strong>
+						</div>
+					</section>
 					<section id="slide-docker-compromise-root">
 						<h4>Compromising host fs</h4>
 						<div style="margin: 0 auto; width: 75%;">
@@ -102,6 +114,100 @@
 							</video>
 						</div>
 					</section>
+				</section>
+				<section>
+					<section id="slide-singularity-intro">
+						<h2>Singularity</h2>
+						<div style="margin: 0 auto; width: 20%">
+							<img src="./figs/singularity_logo.svg" style="height: auto; border: 0;">
+						</div>
+					</section>
+					<section id="slide-singularity-pros">
+						<h4>Singularity</h4>
+						<div>
+							<ul>
+								<li>Singe image-based, not layer-based</li>
+								<li>UNIX user inside the container = UNIX user outside the container</li>
+								<li>No <code>sudo</code> inside the container allowed</li>
+								<li>No <code>root</code> dameon, no <code>root</code> escalation</li>
+								<li>Singularity supports Docker natively!!</li>
+							</ul>
+						</div>
+					</section>
+					<section id="slide-singularity-setup">
+						<h4>Singularity setup</h4>
+						<div>
+							<pre>
+VERSION=2.3.1
+wget https://github.com/singularityware/singularity/releases/download/<br>$VERSION/singularity-$VERSION.tar.gz
+tar xvf singularity-$VERSION.tar.gz
+cd singularity-$VERSION
+./configure --prefix=/usr/local
+make
+sudo make install</pre>
+						</div>
+					</section>
+					
+					<section id="slide-singularity-bootstrap">
+						<h4>Singularity bootstrapping</h4>
+						<div style="position: relative; max-height: 80%;">
+						<pre style="height: 50vh;">
+Bootstrap:docker
+From:centos:latest
+
+%labels
+    MAINTAINER Sven Fillinger
+    VERSION 1.0
+    EMAIL sven.fillinger@qbic.uni-tuebingen.de
+
+%runscript
+    echo "Arguments received: $*"
+    exec java -jar /usr/share/snpEff/snpEff/snpEff.jar "$@"
+
+%post
+    # tmp folder for downloads and stuff
+    TMPDIR=/tmp/snpEff_download
+    # the installation directory of snpEff
+    INSTALLDIR=/usr/share/snpEff
+
+    # Installing JAVA 8 openjdk from the official centos repo
+    yum clean rpmdb
+    yum install -y java-1.8.0-openjdk wget unzip
+    
+    # Prepare snpEff download and installation
+    mkdir -p $INSTALLDIR
+    
+    # Download snpEff version 4.3p (2017-06-06)
+    wget -P $TMPDIR http://sourceforge.net/projects/snpeff/files/snpEff_v4_3p_core.zip
+    # uncomment this, if you want to use the latest version of snpEff
+    # wget -P $TMPDIR http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip
+
+    # Unzip snpEff archive
+    ls $TMPDIR | xargs -i unzip "$TMPDIR/{}" -d $INSTALLDIR
+
+    # Remove tmp snpEff directory
+    rm -rf $TMPDIR
+
+%test
+    java -jar /usr/share/snpEff/snpEff/snpEff.jar -version
+						</pre></div>
+					</section>
+					<section id="slide-singularity-pull">
+						<h4>Pull from shub://</h4>
+						<div style="margin: 0 auto; width: 80%;">
+							<video controls="controls" style="width: auto; border: 0"> 
+							   <source src="./movies/singularity.mkv" type="video/mp4">
+							</video>
+						</div>
+					</section>
+				</section>
+				<section id="slide-links">
+					<h4>Links</h4>
+					<div><a href="http://singularity.lbl.gov/">http://singularity.lbl.gov/</a></div>
+					<div><a href="https://singularity-hub.org/">https://singularity-hub.org/</a></div><br>
+					This presentation is powered by
+					<div><code>reveal.js</code></div>
+					<a href="http://lab.hakim.se/reveal-js/">http://lab.hakim.se/reveal-js/</a>
 				</section>
 			</div>
 		</div>
